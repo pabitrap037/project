@@ -1,3 +1,21 @@
+from PIL import Image, ImageDraw
+import numpy as np
+import time
+from IPython.display import display, HTML
+
+image = Image.open(r"C:\Users\pabit\OneDrive\Pictures\data speed.PNG")
+draw = ImageDraw.Draw(image)
+line_coordinates = (50, 50, 200, 200, 600, 300, 140, 120)
+draw.line(line_coordinates, fill='black', width=3, joint='curve')
+image.save('binary_image.png')
+binary_image = Image.open('binary_image.png')
+binary_array = np.array(binary_image)
+binary_image_path = 'binary_image.png'
+display(HTML(f'<img src="{binary_image_path}">'))
+end_time = time.time()
+execution_time = end_time - start_time
+print(f"Execution Time: {execution_time:.2f} seconds")
+========================================================
 from PIL import Image,ImageDraw
 import numpy as np
 import time
