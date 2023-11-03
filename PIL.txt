@@ -1,3 +1,27 @@
+==================
+#RGBA
+from PIL import Image, ImageDraw
+import numpy as np
+import time
+from IPython.display import display, HTML
+
+temp_image = Image.open(r"C:\Users\pabit\OneDrive\Pictures\demo.jpg")
+image = temp_image.resize((600,600))
+#image.show()
+draw = ImageDraw.Draw(image)
+line_coordinates = [200, 100,230, 50,280, 20,350, 10,420, 30,470, 70,500, 130,500, 200,470, 260,420, 300,
+    350, 320,280, 330,230, 300,200, 250,180, 200,180, 150,200, 130,220, 150,220, 200,200, 220]
+draw.line(line_coordinates, fill='yellow', width=3, joint='curve')
+image.save('temp_image.png')
+image_path = 'temp_image.png'
+display(HTML(f'<img src="{image_path}">'))
+image_rgba = temp_image.convert('RGBA')
+rgba_array = np.array(image_rgba)
+print(rgba_array)
+end_time = time.time()
+execution_time = end_time - start_time
+print(f"Execution Time: {execution_time:.2f} seconds")
+==========================================
 from PIL import Image, ImageDraw
 import numpy as np
 import time
